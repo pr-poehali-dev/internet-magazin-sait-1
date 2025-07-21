@@ -16,62 +16,7 @@ const Index = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const products = [
-    {
-      id: 1,
-      title: "Беспроводные наушники Pro",
-      description: "Премиальные наушники с активным шумоподавлением",
-      price: 12999,
-      category: "Электроника",
-      image: "/img/82d01256-f75f-40c6-8d14-4564e69689ef.jpg",
-      popular: true
-    },
-    {
-      id: 2,
-      title: "Смартфон XMax 128GB",
-      description: "Флагманский смартфон с тройной камерой и большим экраном",
-      price: 65999,
-      category: "Электроника",
-      image: "/img/10754f9e-9053-4f62-b542-f71c4c0d6a87.jpg",
-      popular: true
-    },
-    {
-      id: 3,
-      title: "Кроссовки Nike Air Max",
-      description: "Стильные спортивные кроссовки с амортизацией Air Max",
-      price: 8999,
-      category: "Одежда",
-      image: "/img/82d01256-f75f-40c6-8d14-4564e69689ef.jpg",
-      popular: false
-    },
-    {
-      id: 4,
-      title: "Кофе-машина Deluxe",
-      description: "Автоматическая кофе-машина с встроенной кофемолкой",
-      price: 25990,
-      category: "Дом",
-      image: "/img/10754f9e-9053-4f62-b542-f71c4c0d6a87.jpg",
-      popular: false
-    },
-    {
-      id: 5,
-      title: "Рюкзак Travel Pro",
-      description: "Многофункциональный рюкзак для путешествий и работы",
-      price: 4299,
-      category: "Аксессуары",
-      image: "/img/82d01256-f75f-40c6-8d14-4564e69689ef.jpg",
-      popular: true
-    },
-    {
-      id: 6,
-      title: "Умные часы SportWatch",
-      description: "Водонепроницаемые часы с GPS и мониторингом здоровья",
-      price: 15999,
-      category: "Электроника",
-      image: "/img/10754f9e-9053-4f62-b542-f71c4c0d6a87.jpg",
-      popular: false
-    }
-  ];
+  const products: any[] = [];
 
   const addToCart = (product: typeof products[0]) => {
     setCartItems(prev => [...prev, {
@@ -88,12 +33,10 @@ const Index = () => {
 
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 
-  const categories = ["Все", "Электроника", "Одежда", "Дом", "Аксессуары"];
-  const [selectedCategory, setSelectedCategory] = useState("Все");
+  const categories: string[] = [];
+  const [selectedCategory, setSelectedCategory] = useState("");
 
-  const filteredProducts = selectedCategory === "Все" 
-    ? products 
-    : products.filter(product => product.category === selectedCategory);
+  const filteredProducts = products;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100">
@@ -239,65 +182,14 @@ const Index = () => {
             <p className="text-xl text-gray-600">Выберите то, что подходит именно вам</p>
           </div>
 
-          {/* Category Filter */}
-          <div className="flex justify-center mb-8">
-            <div className="flex space-x-2 bg-white rounded-lg p-1 shadow-sm">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "ghost"}
-                  onClick={() => setSelectedCategory(category)}
-                  className="px-6"
-                >
-                  {category}
-                </Button>
-              ))}
+          <div className="text-center py-16">
+            <div className="max-w-md mx-auto">
+              <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Icon name="Package" size={32} className="text-gray-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Товары скоро появятся</h3>
+              <p className="text-gray-600">Мы работаем над наполнением каталога. Следите за обновлениями!</p>
             </div>
-          </div>
-
-          {/* Products Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
-              <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow group">
-                <div className="relative">
-                  <img 
-                    src={product.image} 
-                    alt={product.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {product.popular && (
-                    <Badge className="absolute top-3 left-3">
-                      <Icon name="Star" size={14} className="mr-1" />
-                      Популярное
-                    </Badge>
-                  )}
-                  <Badge variant="secondary" className="absolute top-3 right-3">
-                    {product.category}
-                  </Badge>
-                </div>
-                
-                <CardHeader>
-                  <CardTitle className="text-xl">{product.title}</CardTitle>
-                  <CardDescription>{product.description}</CardDescription>
-                </CardHeader>
-                
-                <CardContent>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-primary">{product.price} ₽</span>
-                  </div>
-                </CardContent>
-                
-                <CardFooter>
-                  <Button 
-                    className="w-full"
-                    onClick={() => addToCart(product)}
-                  >
-                    <Icon name="ShoppingCart" size={16} className="mr-2" />
-                    В корзину
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
