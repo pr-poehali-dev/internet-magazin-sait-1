@@ -33,8 +33,8 @@ const Index = () => {
 
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 
-  const categories: string[] = [];
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const categories = ["Все", "Донат", "Бусты"];
+  const [selectedCategory, setSelectedCategory] = useState("Все");
 
   const filteredProducts = products;
 
@@ -180,6 +180,22 @@ const Index = () => {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Популярные товары</h2>
             <p className="text-xl text-gray-600">Выберите то, что подходит именно вам</p>
+          </div>
+
+          {/* Category Filter */}
+          <div className="flex justify-center mb-8">
+            <div className="flex space-x-2 bg-white rounded-lg p-1 shadow-sm">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "ghost"}
+                  onClick={() => setSelectedCategory(category)}
+                  className="px-6"
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
           </div>
 
           <div className="text-center py-16">
