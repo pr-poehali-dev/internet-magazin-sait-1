@@ -19,55 +19,55 @@ const Index = () => {
   const products = [
     {
       id: 1,
-      title: "Премиум Донат",
-      description: "Полный пакет премиум-возможностей для вашей игры",
-      price: 1999,
-      category: "Донат",
+      title: "Беспроводные наушники Pro",
+      description: "Премиальные наушники с активным шумоподавлением",
+      price: 12999,
+      category: "Электроника",
       image: "/img/82d01256-f75f-40c6-8d14-4564e69689ef.jpg",
       popular: true
     },
     {
       id: 2,
-      title: "Ранговый Буст",
-      description: "Быстрое повышение ранга профессиональными игроками",
-      price: 2999,
-      category: "Буст",
+      title: "Смартфон XMax 128GB",
+      description: "Флагманский смартфон с тройной камерой и большим экраном",
+      price: 65999,
+      category: "Электроника",
       image: "/img/10754f9e-9053-4f62-b542-f71c4c0d6a87.jpg",
       popular: true
     },
     {
       id: 3,
-      title: "Стартовый Донат",
-      description: "Базовый набор для комфортного старта в игре",
-      price: 999,
-      category: "Донат",
+      title: "Кроссовки Nike Air Max",
+      description: "Стильные спортивные кроссовки с амортизацией Air Max",
+      price: 8999,
+      category: "Одежда",
       image: "/img/82d01256-f75f-40c6-8d14-4564e69689ef.jpg",
       popular: false
     },
     {
       id: 4,
-      title: "Калибровка Ранга",
-      description: "Профессиональная калибровка для получения высокого ранга",
-      price: 1499,
-      category: "Буст",
+      title: "Кофе-машина Deluxe",
+      description: "Автоматическая кофе-машина с встроенной кофемолкой",
+      price: 25990,
+      category: "Дом",
       image: "/img/10754f9e-9053-4f62-b542-f71c4c0d6a87.jpg",
       popular: false
     },
     {
       id: 5,
-      title: "VIP Пакет",
-      description: "Эксклюзивный пакет с максимальными возможностями",
-      price: 4999,
-      category: "Донат",
+      title: "Рюкзак Travel Pro",
+      description: "Многофункциональный рюкзак для путешествий и работы",
+      price: 4299,
+      category: "Аксессуары",
       image: "/img/82d01256-f75f-40c6-8d14-4564e69689ef.jpg",
       popular: true
     },
     {
       id: 6,
-      title: "Быстрый Буст",
-      description: "Ускоренное повышение уровня за 24 часа",
-      price: 1799,
-      category: "Буст",
+      title: "Умные часы SportWatch",
+      description: "Водонепроницаемые часы с GPS и мониторингом здоровья",
+      price: 15999,
+      category: "Электроника",
       image: "/img/10754f9e-9053-4f62-b542-f71c4c0d6a87.jpg",
       popular: false
     }
@@ -88,7 +88,7 @@ const Index = () => {
 
   const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
 
-  const categories = ["Все", "Донат", "Буст"];
+  const categories = ["Все", "Электроника", "Одежда", "Дом", "Аксессуары"];
   const [selectedCategory, setSelectedCategory] = useState("Все");
 
   const filteredProducts = selectedCategory === "Все" 
@@ -103,11 +103,11 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Icon name="Gamepad2" size={24} className="text-white" />
+                <Icon name="ShoppingBag" size={24} className="text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">GameBoost</h1>
-                <p className="text-sm text-gray-600">Професиональные игровые услуги</p>
+                <h1 className="text-2xl font-bold text-gray-900">ShopPro</h1>
+                <p className="text-sm text-gray-600">Интернет-магазин товаров премиум-класса</p>
               </div>
             </div>
             
@@ -181,17 +181,17 @@ const Index = () => {
         <div className="container mx-auto px-4 relative">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              Прокачай свою
-              <span className="text-primary block">игру</span>
+              Лучшие товары
+              <span className="text-primary block">для вас</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Профессиональные донаты и бусты для популярных игр. 
-              Быстро, безопасно, с гарантией результата.
+              Широкий ассортимент качественных товаров с доставкой по всей России. 
+              Гарантия качества и лучшие цены.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 py-6">
                 <Icon name="Zap" size={20} className="mr-2" />
-                Выбрать услугу
+                Выбрать товар
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8 py-6">
                 <Icon name="Play" size={20} className="mr-2" />
@@ -210,22 +210,22 @@ const Index = () => {
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Icon name="Shield" size={32} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">100% Безопасность</h3>
-              <p className="text-gray-600">Гарантируем безопасность вашего аккаунта и данных</p>
+              <h3 className="text-xl font-bold mb-2">Гарантия качества</h3>
+              <p className="text-gray-600">Все товары проходят строгий контроль качества</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Icon name="Clock" size={32} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Быстрое выполнение</h3>
-              <p className="text-gray-600">Большинство заказов выполняется в течение 24 часов</p>
+              <h3 className="text-xl font-bold mb-2">Быстрая доставка</h3>
+              <p className="text-gray-600">Доставка по России в течение 1-3 рабочих дней</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Icon name="Users" size={32} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Профессионалы</h3>
-              <p className="text-gray-600">Команда опытных игроков высшего уровня</p>
+              <h3 className="text-xl font-bold mb-2">Поддержка 24/7</h3>
+              <p className="text-gray-600">Круглосуточная поддержка клиентов и консультации</p>
             </div>
           </div>
         </div>
@@ -235,8 +235,8 @@ const Index = () => {
       <section id="catalog" className="py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Наши услуги</h2>
-            <p className="text-xl text-gray-600">Выберите подходящий пакет для вашей игры</p>
+            <h2 className="text-4xl font-bold mb-4">Популярные товары</h2>
+            <p className="text-xl text-gray-600">Выберите то, что подходит именно вам</p>
           </div>
 
           {/* Category Filter */}
@@ -309,32 +309,32 @@ const Index = () => {
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <Icon name="Gamepad2" size={20} className="text-white" />
+                  <Icon name="ShoppingBag" size={20} className="text-white" />
                 </div>
-                <span className="text-xl font-bold">GameBoost</span>
+                <span className="text-xl font-bold">ShopPro</span>
               </div>
               <p className="text-gray-400">
-                Ведущий сервис профессиональных игровых услуг в России
+                Ведущий интернет-магазин товаров премиум-класса в России
               </p>
             </div>
             
             <div>
-              <h3 className="font-bold mb-4">Услуги</h3>
+              <h3 className="font-bold mb-4">Категории</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>Донаты</li>
-                <li>Ранговые бусты</li>
-                <li>Калибровка</li>
-                <li>VIP пакеты</li>
+                <li>Электроника</li>
+                <li>Одежда и обувь</li>
+                <li>Дом и сад</li>
+                <li>Аксессуары</li>
               </ul>
             </div>
             
             <div>
-              <h3 className="font-bold mb-4">Поддержка</h3>
+              <h3 className="font-bold mb-4">Помощь</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>Часто задаваемые вопросы</li>
-                <li>Техподдержка</li>
-                <li>Гарантии</li>
-                <li>Отзывы</li>
+                <li>Доставка и оплата</li>
+                <li>Возврат товара</li>
+                <li>Гарантия</li>
+                <li>Связаться с нами</li>
               </ul>
             </div>
             
@@ -361,7 +361,7 @@ const Index = () => {
           </div>
           
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 GameBoost. Все права защищены.</p>
+            <p>&copy; 2024 ShopPro. Все права защищены.</p>
           </div>
         </div>
       </footer>
